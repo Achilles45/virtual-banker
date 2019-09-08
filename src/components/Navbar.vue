@@ -62,10 +62,10 @@ export default {
             margin-left: 2rem;
             padding-top: .89rem;
             .nav__link{
-                color: $primary-color;
-                font-size: 1rem;
+                color: $tertiary-color;
+                font-size: .95rem;
                 text-transform: capitalize;
-                font-family: 'Varela Round' !important;
+                font-family: 'Lato' !important;
                 font-weight: bold;
                 text-decoration: none;
                 &:hover{
@@ -73,9 +73,9 @@ export default {
                 }
             }
             .login{
-                border: 1px solid $primary-color;
-                border-radius: 3px;
-                padding: .7rem 2.3rem;
+                border: 1px solid $tertiary-color;
+                border-radius: 2px;
+                padding: .75rem 2.5rem;
             }
         }
     }
