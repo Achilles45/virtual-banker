@@ -26,13 +26,15 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/_colors';
 .banner__wrapper{
+    position: relative;
+    z-index: -2 !important;
     // background: red;
-    padding: 8rem 0;
+    padding-top: 8rem;
     .banner-text{
         h3{
             font-weight: bolder;
             color: $primary-color;
-            font-size: 2.2rem;
+            font-size: 2.6rem;
             font-family: 'Lato';
             text-transform: capitalize;
             padding-bottom: 1.5rem;

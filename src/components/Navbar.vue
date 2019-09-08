@@ -26,7 +26,17 @@
 </template>
 <script>
 export default {
-    name: 'Navbar'
+    name: 'Navbar',
+    mounted(){
+        const nav = document.querySelector('.navbar__wrapper');
+            window.onscroll = function(){
+                if (window.pageYOffset > 120) {
+                    nav.classList.add('fix__nav');
+                }else{
+                    nav.classList.remove('fix__nav');
+                }
+            }
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -35,9 +45,9 @@ export default {
 .navbar__contents{
         // background: green;
         padding: .3rem 0;
-    // .navbar__items{
-        
-    // }
+    .navbar__items{
+        padding-top: 1rem;
+    }
     .logo{
         .logo-link{
             color: $primary-color;
@@ -62,8 +72,32 @@ export default {
                     color: $primary-color;
                 }
             }
+            .login{
+                border: 1px solid $primary-color;
+                border-radius: 3px;
+                padding: .7rem 2.3rem;
+            }
         }
     }
+}
+}
+
+//FIXING NAV
+.fix__nav{
+    position: fixed;
+    top: 0; 
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: #fff;
+    transition: all ease-in-out .5s;
+    box-shadow: 1px 1px 50px rgba(0,0,0,0.17);
+    .nav__link{
+        color: $tertiary-color !important;
+        &:hover{
+            color: $primary-color;
+        }
 }
 }
 </style>
