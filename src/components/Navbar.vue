@@ -92,7 +92,7 @@ export default {
     z-index: 100;
     background: #fff;
     transition: all ease-in-out .5s;
-    box-shadow: 1px 1px 50px rgba(0,0,0,0.17);
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.17);
     .nav__link{
         color: $tertiary-color !important;
         &:hover{
