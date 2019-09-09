@@ -55,4 +55,12 @@ export default {
     .security-logo{
         max-height: 350px !important;
     }
+
+
+    //MEDIA QUERIES
+    @media only screen and (max-width: 990px){
+        .security h4{
+            font-size: 1.6rem !important;
+        }
+    }
 </style>

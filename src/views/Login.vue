@@ -73,6 +73,7 @@ export default {
         }
         input[type=email], input[type=password]{
             height: 2.9rem;
+            border-radius: 0;
             &::placeholder{
                 font-size:.9rem;
                 font-family:'Lato';

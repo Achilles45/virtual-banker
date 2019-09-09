@@ -60,4 +60,12 @@ export default {
         }
     }
 }
+
+
+//MEDIA QUERIES
+@media only screen and (max-width: 990px){
+    .process__heading h4{
+        font-size: 1.35rem !important;
+    }
+}
 </style>

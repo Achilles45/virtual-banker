@@ -1,5 +1,5 @@
 <template>
-    <section class="features">
+    <section class="features container-fluid">
         <div class="features__contents container">
             <div class="row">
                 <div class="col-12 text-center features__heading">
@@ -71,6 +71,14 @@ export default {
                 }
             }
         }
+    }
+}
+
+
+//MEDIA QUERIES
+@media only screen and (max-width: 990px){
+    .features__heading h4{
+        font-size: 1.5rem !important;
     }
 }
 </style>

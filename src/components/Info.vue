@@ -65,4 +65,12 @@ export default {
         }
     }
 }
+
+
+//MEDIA QUERIES
+@media only screen and (max-width: 990px){
+     .info__wrapper h4{
+         font-size: 1.5rem !important;
+     }
+}
 </style>

@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="../assets/support.png" class="img-fluid" alt="">
+                        <img src="../assets/support.png" class="img-fluid mb-4" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
@@ -53,5 +53,13 @@ export default {
             }
         }
     }
+}
+
+
+//MEDIA QUERIES
+@media only screen and (max-width: 990px){
+      .security__contents h4{
+          font-size: 1.4rem;
+      }
 }
 </style>
