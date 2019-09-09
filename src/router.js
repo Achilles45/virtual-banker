@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Register from './views/Register.vue'
 import Login from './views/Login';
 import Contact from './views/Contact';
+import Dashboard from './views/Dashboard';
 Vue.use(Router)
 
 export default new Router({
@@ -16,7 +17,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
+      path: '/about', 
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -37,6 +38,11 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: Contact
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard
     },
   ]
 })

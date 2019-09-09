@@ -11,6 +11,7 @@
                             <li><router-link to="/" class="nav__link home animated slideInLeft delay-1">Home</router-link></li>
                             <li><router-link to="/about" class="nav__link about animated slideInLeft delay-2">About</router-link></li>
                             <li><router-link to="/data" class="nav__link data animated slideInLeft delay-3">Market Data</router-link></li>
+                             <li><router-link to="/dashboard" class="nav__link data animated slideInLeft delay-3">Dashboard</router-link></li>
                             <li><router-link to="/contact" class="nav__link contact animated slideInLeft delay-4">Contact</router-link></li>
                             <li><router-link to="/register" class="nav__link register animated slideInLeft delay-5">Register</router-link></li>
                             <li><router-link to="/login" class="nav__link login animated slideInLeft delay-6">Login</router-link></li>

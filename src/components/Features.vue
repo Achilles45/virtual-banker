@@ -34,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/_colors';
 .features{
-    background: #F4F8FC;
+    background: #E0E8F3;
     .features__contents{
         padding: 4rem 0;
         .features__heading h4{
