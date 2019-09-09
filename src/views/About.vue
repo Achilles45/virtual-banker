@@ -39,6 +39,11 @@
               </div>
             </div>
           </div>
+          <div class="row mt-5 text-center">
+            <div class="col-12">
+              <router-link to="/register" class="register__btn">Get Started Now</router-link>
+            </div>
+          </div>
       </div>
     </div>
     <Footer />
@@ -93,5 +98,19 @@ export default {
     font-family: 'Lato';
     font-size: 1rem;
     font-weight: bold;
+    padding-bottom: 2rem;
+  }
+  .register__btn{
+      background: $primary-color;
+      padding: 1rem 3rem;
+      color:#fff;
+      text-decoration: none;
+      border:none;
+      border-radius: 3px;
+      font-family: 'Lato';
+      &:hover{
+          background: $secondary-color;
+          transition: all ease-in-out .5s;
+      }
   }
 </style>
