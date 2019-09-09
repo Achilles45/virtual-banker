@@ -7,9 +7,9 @@
                     <div class="col-12">
                         <div class="col-md-6">
                             <ul class="d-flex justify-content-between dashboard__nav">
-                            <li id="dashboard" class="dashboard__top__link"><i class="fa fa-dashboard"></i>&nbsp;&nbsp; Dashboard</li>
-                        <li id="transaction" class="dashboard__top__link"><i class="fa fa-money"></i>&nbsp;&nbsp; Transaction</li>
-                        <li id="profile" class="dashboard__top__link"><i class="fa fa-user"></i>&nbsp;&nbsp; Profile</li>
+                            <li @click="showDashboard()" id="dashboard" class="dashboard__top__link"><i class="fa fa-dashboard"></i>&nbsp;&nbsp; Dashboard</li>
+                        <li @click="showTransaction()" id="transaction" class="dashboard__top__link"><i class="fa fa-money"></i>&nbsp;&nbsp; Transaction</li>
+                        <li @click="showProfile()" id="profile" class="dashboard__top__link"><i class="fa fa-user"></i>&nbsp;&nbsp; Profile</li>
                         </ul>
                         </div>
                     </div>
@@ -72,6 +72,86 @@
                 </div>
             </div>
         </div>
+        <!--End of Dashboard
+        =========================-->
+        <!--Profile section
+        =========================-->
+        <div class="profile__wrapper container-fluid">
+           <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                       <div class="row">
+                           <div class="col-md-7">
+                                <ul class="d-flex justify-content-between">
+                            <li @click="showPersonal()" id="personal">Personal Details</li>
+                            <li @click="showBank()" id="bank__detials">Bank Details</li>
+                        </ul>
+                           </div>
+                       </div>
+                       <hr /><br /><br />
+                    <div class="personal__contents">
+                        <form class="personal__form pb-5">
+                            <div class="row">
+                                <div class="col-md-6">
+                                     <div class="form-group">
+                                   <label for="fname">First Name *</label>
+                                   <input type="text" class="form-control">
+                               </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                <label for="lname">Last Name *</label>
+                                <input type="text" class="form-control">
+                            </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                     <div class="form-group">
+                                   <label for="fname">Email Address *</label>
+                                   <input type="email" class="form-control">
+                               </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="text" class="form-control">
+                            </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="bank__contents">
+                        <form class="bank__form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-grou">
+                                        <label for="bname">Bank Name *</label>
+                                    <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                        <label for="bname">Account Name *</label>
+                                    <input type="text" class="form-control">
+                                   </div>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-md-6">
+                                   <div class="form-group">
+                                        <label for="bname">Account Name *</label>
+                                    <input type="text" class="form-control">
+                                   </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+           </div>
+        </div>
     </div>
 </template>
 <script>
@@ -80,6 +160,49 @@ export default {
     name: 'Dashboard',
     components:{
         Navbar
+    },
+    methods:{
+        showDashboard:function(){
+            const dashboardHolder = document.querySelector('#dashboard');
+            const dashboard = document.querySelector('.dashboard__body')
+            const profile = document.querySelector('.profile__wrapper');
+            dashboard.style.display = 'block';
+            profile.style.display = 'none';
+
+        },
+        showProfile:function(){
+            const dashboard = document.querySelector('.dashboard__body')
+            const profile = document.querySelector('.profile__wrapper');
+            const transaction = document.querySelector('.transaction__wrapper');
+            dashboard.style.display = 'none';
+            transaction.style.display = 'nonr';
+            profile.style.display = 'block';
+        },
+        showTransaction:function(){
+            // const dashboard = document.querySelector('.dashboard__body')
+            // const profile = document.querySelector('.profile__wrapper');
+            // const transaction = document.querySelector('.transaction__wrapper');
+            // const transactionHolder = document.querySelector('#transaction');
+            // dashboard.style.display = 'none';
+            // profile.style.display = 'none';
+            // transaction.style.display = 'block';
+            alert('Transactions loading ...')
+        },
+        showPersonal:function(){
+            const personal = document.querySelector('.personal__contents');
+            const bank = document.querySelector('.bank__contents');
+            personal.style.display = 'block';
+            bank.style.display = 'none';
+        },
+        showBank:function(){
+            const personal = document.querySelector('.personal__contents');
+            const bank = document.querySelector('.bank__contents');
+            personal.style.display = 'none';
+            bank.style.display = 'block';
+        }
+    },
+    mounted(){
+        this.showPersonal();
     }
 }
 </script>
@@ -176,5 +299,22 @@ ul{
     .invite_card{
         margin-top: 1.2rem
     }
+}
+
+
+//Profile Styles
+.profile__wrapper{
+    background: #E0E8F3;
+    padding-top: 3rem;
+    padding-bottom: 10rem;
+    font-family: 'Lato';
+    font-size: 1rem;
+    ul li{
+        color:$primary-color;
+    }
+    #bank__detials, #personal{
+            color: $primary-color;
+            cursor: pointer;
+        }
 }
 </style>
