@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="../assets/phone.png" class="img-fluid" alt="">
+                        <img src="../assets/phone.png" class="img-fluid phone" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
@@ -42,6 +42,9 @@ export default {
             color: $primary-color;
             padding-bottom: 1rem;
         }
+    }
+    .phone{
+        min-height: 400px;
     }
     .process__details{
         h5{
