@@ -38,7 +38,8 @@
                         </div>
                     </div>
                     <div class="top__cards text-center">
-                        <p class="pt-5">Want to know more? <br>Our blog is underway!</p>
+                        <p class="pt-5 pb-2">Invest today and see your money work for you</p>
+                        <router-link to="/invest" class="invest__btn">Invest Now</router-link>
                     </div>
                 </div>
             </div>
@@ -168,6 +169,7 @@ export default {
             const profile = document.querySelector('.profile__wrapper');
             dashboard.style.display = 'block';
             profile.style.display = 'none';
+            // this.hideProfile();
 
         },
         showProfile:function(){
@@ -175,8 +177,9 @@ export default {
             const profile = document.querySelector('.profile__wrapper');
             const transaction = document.querySelector('.transaction__wrapper');
             dashboard.style.display = 'none';
-            transaction.style.display = 'nonr';
+            // transaction.style.display = 'none';
             profile.style.display = 'block';
+            this.hideBankDetails();
         },
         showTransaction:function(){
             // const dashboard = document.querySelector('.dashboard__body')
@@ -199,10 +202,15 @@ export default {
             const bank = document.querySelector('.bank__contents');
             personal.style.display = 'none';
             bank.style.display = 'block';
+        },
+        //Function to hide the profile section when mounted
+        hideBankDetails: function(){
+        const bank = document.querySelector('.bank__contents');
+           bank.style.display = 'none';
         }
     },
     mounted(){
-        this.showPersonal();
+        this.showDashboard();
     }
 }
 </script>
@@ -248,6 +256,14 @@ ul{
         p{
             color:#fff;
             font-size: .87rem;
+        }
+        .invest__btn{
+            background: #fff;
+            padding: .8rem 2rem;
+            text-decoration: none;
+            color:$primary-color;
+            border-radius: 4px;
+            font-weight: bold;
         }
         }
     }
@@ -309,12 +325,22 @@ ul{
     padding-bottom: 10rem;
     font-family: 'Lato';
     font-size: 1rem;
-    ul li{
-        color:$primary-color;
+ul li{
+    color:$primary-color;
+}
+#bank__detials, #personal{
+        color: $primary-color;
+        cursor: pointer;
     }
-    #bank__detials, #personal{
-            color: $primary-color;
-            cursor: pointer;
-        }
+label{
+    color: $tertiary-color;
+    font-weight: bold;
+    font-size: .8rem;
+}
+input[type=text], input[type=email]{
+    height: 2.8rem;
+    border-radius: 0;
+    box-shadow: none;
+}
 }
 </style>

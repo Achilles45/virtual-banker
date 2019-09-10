@@ -12,6 +12,7 @@
                             <li><router-link to="/about" class="nav__link about animated slideInLeft delay-2">About</router-link></li>
                             <li><router-link to="/data" class="nav__link data animated slideInLeft delay-3">Market Data</router-link></li>
                              <li><router-link to="/dashboard" class="nav__link data animated slideInLeft delay-3">Dashboard</router-link></li>
+                              <li><router-link to="/invest" class="nav__link data animated slideInLeft delay-3">Invest</router-link></li>
                             <li><router-link to="/contact" class="nav__link contact animated slideInLeft delay-4">Contact</router-link></li>
                             <li><router-link to="/register" class="nav__link register animated slideInLeft delay-5">Register</router-link></li>
                             <li><router-link to="/login" class="nav__link login animated slideInLeft delay-6">Login</router-link></li>
@@ -103,7 +104,7 @@ export default {
     z-index: 100;
     background: #fff;
     transition: all ease-in-out .5s;
-    box-shadow: 0px 0px 40px rgba(0,0,0,0.17);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.17);
     .nav__link{
         color: $tertiary-color !important;
         &:hover{

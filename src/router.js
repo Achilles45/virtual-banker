@@ -5,6 +5,8 @@ import Register from './views/Register.vue'
 import Login from './views/Login';
 import Contact from './views/Contact';
 import Dashboard from './views/Dashboard';
+import Invest from './views/Invest';
+import Details from './views/Details';
 Vue.use(Router)
 
 export default new Router({
@@ -44,5 +46,15 @@ export default new Router({
       name: 'Dashboard',
       component: Dashboard
     },
+    {
+      path: '/invest',
+      name: 'Invest',
+      component: Invest
+    },
+    {
+      path: '/details/:Pid',
+      name: 'details',
+      component: Details
+    }
   ]
 })

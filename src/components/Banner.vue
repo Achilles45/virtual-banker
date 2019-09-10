@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 banner-text">
                     <h3>Helping you achieve financial success</h3>
-                     <p>Virtual Banker is your partner of choice to help you achieve financial freedom by leveragin on data and opportunities</p>
+                     <p>Virtual Banker is your partner of choice to help you achieve financial freedom by leveraging on data and opportunities</p>
                     <div class="banner__text__description">
                        <p>Access real-time financial data</p>
-                       <p>Earn over 17% interests on investments</p>
+                       <p>Make investments into real estate</p>
                     </div>
                     <div class="banner__img">
                         <img src="../assets/google-play-badge.webp" class="img-fluid google-icon" alt="">

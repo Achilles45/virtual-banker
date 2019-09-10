@@ -1,5 +1,5 @@
 <template>
-    <ssection class="process">
+    <section class="process">
         <div class="process__wrapper container-fluid">
             <div class="container">
                 <div class="row">
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-    </ssection>
+    </section>
 </template>
 <script>
 export default {
