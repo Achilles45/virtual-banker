@@ -16,19 +16,19 @@
                         <div class="form__wrapper pt-3">
                             <form @submit.prevent="register()" class="register__form">
                                 <div class="form-group">
-                                    <input type="text" name="first_name" class="form-control" placeholder="First Name" v-model="fname">
+                                    <input type="text" class="form-control" placeholder="First Name" v-model="fname">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="last_name" class="form-control" placeholder="Last Name" v-model="lname">
+                                    <input type="text" class="form-control" placeholder="Last Name" v-model="lname">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="Email Address" v-model="email">
+                                    <input type="email"  class="form-control" placeholder="Email Address" v-model="email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="phone" class="form-control" placeholder="Phone Number" v-model="phone">
+                                    <input type="text" class="form-control" placeholder="Phone Number" v-model="phone">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="first_name" class="form-control" placeholder="Password" v-model="password">
+                                    <input type="password" class="form-control" placeholder="Password" v-model="password">
                                     <small>Clicking the register button means you agree to our <router-link to="/" class="terms"> terms & conditions</router-link></small>
                                 </div>
                                 <button type="submit" class="register__btn btn-block">Register&nbsp;&nbsp; <i class="fa fa-long-arrow-right"></i></button>
@@ -50,6 +50,8 @@ import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 
 import { setTimeout } from 'timers';
+import db from '@/firebase/init';
+import firebase from 'firebase';
 export default {
     name: 'Register',
     components:{
@@ -82,6 +84,15 @@ export default {
             if(!this.fname || !this.lname || !this.email || !this.phone || !this.password){
                 this.err = 'Please all fields are required!';
                 this.clearAlert();
+            }else{
+                firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+                .then(()=>{
+                    this.$router.push({name: 'Dashboard'})
+                })
+                .catch(err =>{
+                    this.err = err.message;
+                    console.log(err.message)
+                })
             }
         }
     }
@@ -162,5 +173,12 @@ export default {
     font-size: 1rem;
     position: absolute;
     right: 5%;
+}
+
+//MEIDA QUERIES
+@media only screen and (max-width: 990px){
+    .errors{
+        bottom: 0;
+    }
 }
 </style>

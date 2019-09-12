@@ -78,5 +78,13 @@ export default {
       .security__contents h4{
           font-size: 1.4rem;
       }
+      @keyframes animate{
+           from{
+            transform: translateY(-30px);
+        }
+        to{
+            transform: translateY(20px);
+        }
+      }
 }
 </style>

@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
@@ -9,7 +10,7 @@ import Invest from './views/Invest';
 import Details from './views/Details';
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -44,12 +45,18 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: Dashboard
+      component: Dashboard,
+      meta:{
+        requiresAuth: true
+      }
     },
     {
       path: '/invest',
       name: 'Invest',
-      component: Invest
+      component: Invest,
+      meta:{
+        requiresAuth: true
+      }
     },
     {
       path: '/details/:Pid',
@@ -58,3 +65,21 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next)=>{
+  //Check if the route we are about entering has the meta- requires auth
+  if(to.matched.some(rec=>rec.meta.requiresAuth)){
+    //Check auth state of user
+    let user = firebase.auth().currentUser
+    if(user){
+      //User is signed in, then proceed to route
+      next()
+    }else{
+      next({name: 'Login'})
+    }
+  }else{ 
+    next()
+  }
+});
+
+export default router

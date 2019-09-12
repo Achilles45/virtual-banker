@@ -4,6 +4,9 @@
         <div class="login__wrapper container-fluid">
             <div class="container">
                 <div class="row">
+                       <div v-if="err" class="errors text-center animated slideInDown">
+                            {{ err }}
+                        </div>
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
                         <div class="login__heading text-center">
@@ -11,7 +14,7 @@
                             <p>Please login</p>
                         </div>
                         <div class="login__form_-wrapper">
-                            <form class="login__form">
+                            <form @submit.prevent="logIn()" class="login__form">
                                 <div class="form-group">
                                     <label for="email">Email Address *</label>
                                     <input type="email" class="form-control" v-model="email" placeholder="Registered email">
@@ -38,11 +41,33 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
+import firebase from 'firebase';
 export default {
     name: 'Login',
     components:{
         Navbar,
         Footer
+    },
+    data(){
+        return{
+            password:null,
+            email:null,
+            err:null
+        }
+    },
+    methods:{
+        logIn:function(){
+            //Check if the fields has been filled out
+            if(!this.email || !this.password){
+               this.err = 'Please enter your credentials'
+            }else{
+                this.err = null;
+             firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            .then((cred)=>{
+                this.$router.push({name: 'Dashboard'})
+            })
+            }
+        }
     }
 }
 </script>
@@ -106,6 +131,24 @@ export default {
             }
         }
     }
+    }
+}
+
+.errors{
+    background: #BD362F;
+    color:#fff;
+    border-radius: 3px;
+    padding:1.5rem 2rem;
+    font-family: 'Lato';
+    font-size: 1rem;
+    position: absolute;
+    right: 5%;
+}
+
+//MEIDA QUERIES
+@media only screen and (max-width: 990px){
+    .errors{
+        bottom: 0;
     }
 }
 </style>

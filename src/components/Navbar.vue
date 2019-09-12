@@ -1,5 +1,5 @@
 <template>
-    <div @click="fixNav()" class="navbar__wrapper">
+    <div class="navbar__wrapper">
         <div class="navbar__contents container-fluid">
             <div class="container">
                 <div class="navbar__items d-flex justify-content-between align-items-center">
@@ -8,14 +8,15 @@
                     </div>
                     <div class="navbar__links">
                         <ul class="nav__links d-flex justify-content-between">
-                            <li><router-link to="/" class="nav__link home animated slideInLeft delay-1">Home</router-link></li>
-                            <li><router-link to="/about" class="nav__link about animated slideInLeft delay-2">About</router-link></li>
-                            <li><router-link to="/data" class="nav__link data animated slideInLeft delay-3">Market Data</router-link></li>
-                             <li><router-link to="/dashboard" class="nav__link data animated slideInLeft delay-3">Dashboard</router-link></li>
-                              <li><router-link to="/invest" class="nav__link data animated slideInLeft delay-3">Invest</router-link></li>
-                            <li><router-link to="/contact" class="nav__link contact animated slideInLeft delay-4">Contact</router-link></li>
-                            <li><router-link to="/register" class="nav__link register animated slideInLeft delay-5">Register</router-link></li>
-                            <li><router-link to="/login" class="nav__link login animated slideInLeft delay-6">Login</router-link></li>
+                            <li v-if="!user"><router-link to="/about" class="nav__link about animated slideInLeft delay-2">About</router-link></li>
+                            <li v-if="!user"><router-link to="/data" class="nav__link data animated slideInLeft delay-3">Market Data</router-link></li>
+                             <li v-if="!user"><router-link to="/dashboard" class="nav__link data animated slideInLeft delay-3">Dashboard</router-link></li>
+                              <li v-if="user"><router-link to="/invest" class="nav__link data animated slideInLeft delay-3">Invest</router-link></li>
+                            <li v-if="!user"><router-link to="/contact" class="nav__link contact animated slideInLeft delay-4">Contact</router-link></li>
+                            <li v-if="!user"><router-link to="/register" class="nav__link register animated slideInLeft delay-5">Register</router-link></li>
+                            <li v-if="user"><a>{{ user.email }}</a></li>
+                            <li v-if="!user"><router-link to="/login" class="nav__link login animated slideInLeft delay-6">Login</router-link></li>
+                            <li v-if="user" @click="logOut()"><router-link to="" class="nav__link">Logout</router-link></li>
                         </ul>
                     </div>
                     <div @click="showNav()" class="navbar__toggler">
@@ -27,10 +28,33 @@
     </div>
 </template>
 <script>
+import firebase from 'firebase';
 export default {
     name: 'Navbar',
+    data(){
+        return{
+            user:null
+        }
+    },
+    created(){
+        firebase.auth().onAuthStateChanged((user)=>{
+            if (user) {
+                this.user = user;
+            }else{
+                this.user = null
+            }
+        })
+    },
     mounted(){
-        const nav = document.querySelector('.navbar__wrapper');
+       this.fixNav();
+    },
+    methods:{
+        showNav:function(){
+            const nav = document.querySelector('.nav__links');
+            nav.classList.toggle('show__nav');
+        },
+        fixNav:function(){
+             const nav = document.querySelector('.navbar__wrapper');
             window.onscroll = function(){
                 if (window.pageYOffset > 120) {
                     nav.classList.add('fix__nav');
@@ -38,13 +62,13 @@ export default {
                     nav.classList.remove('fix__nav');
                 }
             }
-    },
-    methods:{
-        showNav:function(){
-            const nav = document.querySelector('.nav__links');
-            nav.classList.toggle('show__nav');
         },
-        
+        logOut:function(){
+           firebase.auth().signOut()
+           .then(()=>{
+               this.$router.push({name: 'Login'})
+           })
+        }
     }
 }
 </script>
@@ -91,6 +115,7 @@ export default {
     }
     .navbar__toggler{
         display: none;
+        color:$primary-color;
     }
 }
 }
