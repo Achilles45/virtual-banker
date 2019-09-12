@@ -51,6 +51,7 @@ footer{
             font-family: 'Varela Round';
             font-size: .85rem;
             line-height: 1.6;
+            opacity: .7;
         }
         .office{
             font-weight: bold;

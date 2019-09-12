@@ -8,7 +8,7 @@
                        <h4>Over &#8358;1,000,000 worth of financial data and opportunities shared here</h4>
                        <p>Since existence, Virvual Banker has helped lot of people change their financial situation by providing acccess to real-time financial data, investment opportunities of all kinds that are secured and highly competitive.</p>
                        <router-link to="/register" class="register-btn">Create a free Account</router-link>
-                       <div class="app__store">
+                       <div class="app__store pt-2">
                            <a href="#"><img src="../assets/google-play-badge.webp" class="google-icon" alt=""></a>
                            <a href="#"><img src="../assets/iosbadge-101-image.webp" class="ios-icon" alt=""></a>
                        </div>
