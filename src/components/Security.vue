@@ -57,6 +57,7 @@ export default {
     }
 
 
+
     //MEDIA QUERIES
     @media only screen and (max-width: 990px){
         .security h4{

@@ -13,7 +13,7 @@
                </div>
                <!--Images of the property
                ==================-->
-               <div class="project__images">
+               <div class="container-fluid">
                    <div v-if="proId == property.propertyId">
                        <div class="row">
                            <div class="col-md-3">
@@ -60,6 +60,14 @@
                                       </ul>
                                         </div>
                                     </div>
+                                   <div class="project__pricing">
+                                       <h5>Project Pricing</h5>
+                                       <p>You can only buy one unit of ownership at the moment</p>
+                                      <P><i class="fa fa-money"></i> &nbsp;&nbsp; Amount: &#8358; 100,000</P>
+                                      <p><i class="fa fa-line-chart"></i> &nbsp;&nbsp; Expected retuns on sale: 45%</p>
+                                      <p><i class="fa fa-cubes"></i> &nbsp;&nbsp; Project lifecycle: 2yrs</p>
+                                      <button class="pay__btn">Invest Now</button>
+                                   </div>
                                    </div>
                                </div>
                                <div class="col-md-4">
@@ -169,6 +177,13 @@ export default {
             text-transform: capitalize;
             font-family: 'Lato';
         }
+    }
+    .pay__btn{
+        background: $secondary-color;
+        color:#fff;
+        padding:.75rem 3.5rem;
+        border-radius: 4px;
+        border:none;
     }
 }
 </style>

@@ -56,7 +56,8 @@ export default {
         p{
             font-family: 'Lato';
             font-size: .95rem;
-            color: $tertiary-color;
+            color: $primary-color;
+            opacity: .8
         }
     }
 }

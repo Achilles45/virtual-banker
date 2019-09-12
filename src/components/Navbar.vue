@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar__wrapper">
+    <div @click="fixNav()" class="navbar__wrapper">
         <div class="navbar__contents container-fluid">
             <div class="container">
                 <div class="navbar__items d-flex justify-content-between align-items-center">
@@ -43,7 +43,8 @@ export default {
         showNav:function(){
             const nav = document.querySelector('.nav__links');
             nav.classList.toggle('show__nav');
-        }
+        },
+        
     }
 }
 </script>
@@ -129,7 +130,7 @@ export default {
         z-index: 100;
         width: 100%;
         min-height:350px;
-        padding: 1.3rem 0;
+        padding: 1.5rem 0;
         display: none !important;
         li{
             margin-left: 0 !important;
@@ -143,7 +144,6 @@ export default {
      .nav__link{
          padding: 2rem;
          color: #fff !important;
-         font-weight: normal !important;
      }
      .login{
         border: none !important;

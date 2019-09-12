@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="../assets/support.png" class="img-fluid mb-4" alt="">
+                        <img src="../assets/support.png" class="img-fluid support-img mb-4" alt="">
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
@@ -35,9 +35,10 @@ export default {
             padding-bottom: .7rem;
         }
         p{
-            font-family: 'Varela Round';
-            color: $tertiary-color;
+            font-family: 'Lato';
+            color: $primary-color;
             margin-bottom: 2rem;
+            opacity: .8;
         }
         .contact__btn{
             background: $secondary-color;
@@ -54,6 +55,22 @@ export default {
         }
     }
 }
+.support-img{
+    animation: animate;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 4s;
+    }
+
+//Annimation
+    @keyframes animate{
+        from{
+            transform: translateY(-40px);
+        }
+        to{
+            transform: translateY(40px);
+        }
+    }
 
 
 //MEDIA QUERIES
